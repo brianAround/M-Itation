@@ -1,7 +1,6 @@
 # M-Itation : ORM Library for M-Files Vaults
 
-## A .NET Library for simplifying the process of creating, retrieving, and
-## modifying documents in an M-Files Vault.  
+## A .NET Library for simplifying the process of creating, retrieving, and modifying documents in an M-Files Vault.  
 
 ### About M-Files and MFilesAPI
 
