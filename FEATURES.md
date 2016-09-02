@@ -95,6 +95,18 @@ methodologies such as:
 applying an AND restriction on the results.
 1. A consumer can filter search results by Object Type, Or Class.
 
+## Class mapping
+1. A consumer can on or before connection to an M-Files Vault, specify a class
+or set of classes for M-Itation to map to existing vault objects.
+1. M-Itation will map specified classes to Vault classes by names, aliases, and
+data type values.
+1. A mapped class can be used for the lifetime of the library to retrieve
+M-Files object from the Vault.
+1. A mapped object can be sent to an M-Itation Save method, and the Library
+will attempt to update the Vault object with values from the passed object.
+1. A mapped object can be used to create a new Vault object.
+1. An alternate method of configuring object mappings will be provided, in order
+to handle exceptions to the Automatic mapping process.
 
 
 
