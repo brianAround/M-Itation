@@ -2,8 +2,9 @@ C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\obj\Debug\M-It
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\M-Itation Testing.dll
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\M-Itation Testing.pdb
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\M-Itation.dll
-C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\M-Itation.pdb
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\obj\Debug\M-Itation Testing.dll
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\obj\Debug\M-Itation Testing.pdb
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\obj\Debug\M-Itation Testing.csproj.ResolveComReference.cache
+C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\NSubstitute.dll
+C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation Testing\bin\Debug\NSubstitute.xml

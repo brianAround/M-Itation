@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MItationLibrary.cs" />
+    <Compile Include="MFilesAuthType.cs" />
+    <Compile Include="MFilesProtocolSequence.cs" />
+    <Compile Include="MFilesServerConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MFilesAPI">

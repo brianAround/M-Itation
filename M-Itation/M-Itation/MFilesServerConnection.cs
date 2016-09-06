@@ -7,8 +7,22 @@ using System.Threading.Tasks;
 
 namespace M_Itation
 {
-    public class MItationLibrary
+    public class MFilesServerConnection
     {
+
+        public MFilesServerConnection()
+        {
+
+        }
+
+        public ServerConfig ServerConfig { get; set; } = new ServerConfig();
+
+
+
+        public string ConnectedVault { get; set; }
+
+        internal MFilesServerApplication Server { get; private set; }
+
         public bool IsConnectedtoServer
         {
             get
@@ -32,12 +46,24 @@ namespace M_Itation
 
         }
 
-        internal MFilesServerApplication Server { get; private set; }
 
         public void Connect()
         {
             Server = new MFilesServerApplication();
-            Server.Connect(AuthType: MFAuthType.MFAuthTypeLoggedOnWindowsUser, ProtocolSequence: "ncacn_ip_tcp", LocalComputerName: Environment.MachineName);
+
+            Server.Connect(AuthType: (MFAuthType)ServerConfig.AuthType,
+                            UserName: ServerConfig.UserName,
+                            Password: ServerConfig.Password,
+                            Domain: ServerConfig.Domain,
+                            ProtocolSequence: ServerConfig.ProtocolSequence.ToString(),
+                            NetworkAddress: ServerConfig.ServerName, 
+                            Endpoint: ServerConfig.EndPoint, 
+                            LocalComputerName: Environment.MachineName);
+        }
+
+        public void ConnectToVault(string v)
+        {
+            
         }
 
         public string[] GetVaults()
