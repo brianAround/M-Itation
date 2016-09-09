@@ -19,6 +19,7 @@ namespace M_Itation_Testing
 
             serverConfig.AuthType = MFilesAuthType.CurrentlyLoggedOnWindowsUser;
             
+            
 
 
         }

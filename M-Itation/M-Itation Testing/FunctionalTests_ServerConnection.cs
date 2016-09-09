@@ -9,12 +9,15 @@ namespace M_Itation_Testing
     [TestClass]
     public class FunctionalTests_ServerConnection
     {
-        [TestMethod]
-        public void GetServerInfo()
+   
+    
+        public void Utility_TestServerOperations(ServerConfig serverConfig)
         {
             // Get the library and see if the server is where we expect it to be.
-            var con = new MFilesServerConnection();
+            var con = new MFilesServerConnection(serverConfig);
+
             Assert.IsNotNull(con);
+            Assert.IsFalse(con.IsConnectedtoServer, "MFilesServerconnection just created, but seems to be connected to the server.");
             con.Connect();
 
             // Verify that you're connected to the server
@@ -24,21 +27,76 @@ namespace M_Itation_Testing
             var vaults = con.GetVaults();
             Assert.IsNotNull(vaults);
             Assert.AreNotEqual(0, vaults.Count());
-            // Connect to the first vault in the list
 
-            con.ConnectToVault(vaults[0]);
-
-            Assert.AreEqual(con.ConnectedVault, vaults[0]);
-
-            
-  
+            // The first vault has a name and a Guid that cpuld be used to connect to it.
 
 
-
-
-
+            // Disconnect from the server, just to tidy things up.
+            con.Disconnect();
+            Assert.IsFalse(con.IsConnectedtoServer, "After disconnection... Library is still connected.");
             // Once you've covered this case, remove this item.
-            Assert.Fail("Finish the GetServerInfo functional test");
-        }   
+            Assert.Inconclusive("Finish the GetServerInfo functional test");
+
+        }
+
+
+        [TestMethod]
+        public void GetServerInfoCurrentWindowsUser()
+        {
+            Utility_TestServerOperations(getCurrentWindowsUserConfig());
+        }
+
+
+        [TestMethod]
+        public void GetServerInfoSpecificMFilesUser()
+        {
+            Utility_TestServerOperations(getSpecificMFilesUserConfig());
+        }
+
+        [TestMethod]
+        public void GetServerInfoSpecificWindowsUser()
+        {
+            Utility_TestServerOperations(getSpecificWindowsUserConfig());
+        }
+
+
+
+        private ServerConfig getCurrentWindowsUserConfig()
+        {
+            return new ServerConfig
+            {
+                AuthType = MFilesAuthType.CurrentlyLoggedOnWindowsUser,
+                UserName = null,
+                Password = null,
+                ProtocolSequence = MFilesProtocolSequence.ncacn_ip_tcp,
+                ServerName = "localhost"
+            };
+        }
+
+        private ServerConfig getSpecificMFilesUserConfig()
+        {
+            return new ServerConfig
+            {
+                AuthType = MFilesAuthType.SpecificMFilesUser,
+                UserName = "Lance",
+                Password = "Armstrong",
+                ProtocolSequence = MFilesProtocolSequence.ncacn_ip_tcp,
+                ServerName = "localhost"
+            };
+        }
+
+        private ServerConfig getSpecificWindowsUserConfig()
+        {
+
+            return new ServerConfig
+            {
+                AuthType = MFilesAuthType.SpecificWindowsUser,
+                UserName = "Admin",
+                Password = "corsica",
+                Domain = "DESKTOP-HN8QES7",
+                ProtocolSequence = MFilesProtocolSequence.ncacn_ip_tcp,
+                ServerName = "localhost"
+            };
+        }
     }
 }

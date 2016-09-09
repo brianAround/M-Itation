@@ -25,6 +25,27 @@ namespace M_Itation_Testing
             con.Connect();
         }
 
+        [TestMethod]
+        public void TestNewServerInstanceStartsDisconnected()
+        {
+            MFilesServerConnection con = new MFilesServerConnection();
+            Assert.IsFalse(con.IsConnectedtoServer, "The brand new connection ");
+        }
+
+
+        [TestMethod]
+        public void TestDisconnectionConnectedInstance()
+        {
+            MFilesServerConnection library = new MFilesServerConnection();
+            library.Connect();
+            if (!library.IsConnectedtoServer)
+            {
+                Assert.Inconclusive("Can't connect to server to test disconnect.");
+            }
+            library.Disconnect();
+            Assert.IsFalse(library.IsConnectedtoServer, "Disconnect failure");
+
+        }
         
     }
 }

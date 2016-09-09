@@ -1,6 +1,5 @@
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation\bin\Debug\M-Itation.dll
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation\bin\Debug\M-Itation.pdb
-C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation\obj\Debug\M-Itation.csprojResolveAssemblyReference.cache
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation\obj\Debug\M-Itation.dll
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation\obj\Debug\M-Itation.pdb
 C:\Users\Brian\Source\Repos\M-Itation\M-Itation\M-Itation\obj\Debug\M-Itation.csproj.ResolveComReference.cache

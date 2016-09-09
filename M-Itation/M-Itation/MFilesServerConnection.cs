@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,13 +16,15 @@ namespace M_Itation
 
         }
 
+        public MFilesServerConnection(ServerConfig config)
+        {
+            ServerConfig = config;
+        }
+
         public ServerConfig ServerConfig { get; set; } = new ServerConfig();
 
 
-
-        public string ConnectedVault { get; set; }
-
-        internal MFilesServerApplication Server { get; private set; }
+        internal MFilesServerApplication Server { get; private set; } = new MFilesServerApplication();
 
         public bool IsConnectedtoServer
         {
@@ -32,14 +35,11 @@ namespace M_Itation
                 {
                     try
                     {
-                        Server.TestConnectionToServerEx();
+                        MFilesVersion mfv = Server.GetServerVersion();
                         isConnected = true;
                     }
                     catch
-                    {
-                        // TODO:  Make a custom exception.
-                        throw;
-                    }
+                    { }
                 }
                 return isConnected;
             }
@@ -50,7 +50,6 @@ namespace M_Itation
         public void Connect()
         {
             Server = new MFilesServerApplication();
-
             Server.Connect(AuthType: (MFAuthType)ServerConfig.AuthType,
                             UserName: ServerConfig.UserName,
                             Password: ServerConfig.Password,
@@ -61,14 +60,16 @@ namespace M_Itation
                             LocalComputerName: Environment.MachineName);
         }
 
-        public void ConnectToVault(string v)
+        
+        public void Disconnect()
         {
-            
+            Server?.Disconnect();
         }
+
 
         public string[] GetVaults()
         {
-            return Server.GetVaults().OfType<VaultOnServer>().Select(vos => vos.Name).ToArray(); 
+            return Server?.GetVaults().OfType<VaultOnServer>().Select(vos => vos.Name).ToArray(); 
         }
     }
 }
