@@ -28,14 +28,16 @@ namespace M_Itation_Testing
             Assert.IsNotNull(vaults);
             Assert.AreNotEqual(0, vaults.Count());
 
-            // The first vault has a name and a Guid that cpuld be used to connect to it.
-
+            // The first vault has a name and a Guid that could be used to connect to it.
+            var FirstVault = vaults[0];
+            Assert.IsNotNull(FirstVault.Name);
+            Assert.AreNotEqual(Guid.Empty, FirstVault.VaultGuid);
+            
 
             // Disconnect from the server, just to tidy things up.
             con.Disconnect();
             Assert.IsFalse(con.IsConnectedtoServer, "After disconnection... Library is still connected.");
-            // Once you've covered this case, remove this item.
-            Assert.Inconclusive("Finish the GetServerInfo functional test");
+
 
         }
 

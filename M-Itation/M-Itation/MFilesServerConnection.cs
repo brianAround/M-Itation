@@ -67,9 +67,9 @@ namespace M_Itation
         }
 
 
-        public string[] GetVaults()
+        public VaultInfo[] GetVaults()
         {
-            return Server?.GetVaults().OfType<VaultOnServer>().Select(vos => vos.Name).ToArray(); 
+            return Server?.GetVaults().OfType<VaultOnServer>().Select(vos => new VaultInfo(vos.Name, Guid.Parse(vos.GUID))).ToArray(); 
         }
     }
 }

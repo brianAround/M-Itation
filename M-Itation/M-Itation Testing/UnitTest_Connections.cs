@@ -46,6 +46,22 @@ namespace M_Itation_Testing
             Assert.IsFalse(library.IsConnectedtoServer, "Disconnect failure");
 
         }
-        
+
+        [TestMethod]
+        public void TestGetVaultsReturnsNameAndGuid()
+        {
+            MFilesServerConnection con = new MFilesServerConnection();
+            con.Connect();
+
+            if (!con.IsConnectedtoServer) Assert.Inconclusive("Can't continue without server connection.");
+
+            foreach(VaultInfo vaultInfo in con.GetVaults())
+            {
+                Assert.IsNotNull(vaultInfo);
+                Assert.IsNotNull(vaultInfo.Name, "VaultInfo name not set");
+                Assert.AreNotEqual(Guid.Empty, vaultInfo.VaultGuid, "VaultInfo Guid not set");
+            }
+
+        }
     }
 }

@@ -46,6 +46,7 @@
     <Compile Include="MFilesServerConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerConfig.cs" />
+    <Compile Include="VaultInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="MFilesAPI">
