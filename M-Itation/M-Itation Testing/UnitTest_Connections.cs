@@ -21,7 +21,7 @@ namespace M_Itation_Testing
         public void TestConnectionToFakeServer()
         {
             MFilesServerConnection con = new MFilesServerConnection();
-            con.ServerConfig.ServerName = "ThisIsNotARealServerName";
+            con.ServerName = "ThisIsNotARealServerName";
             con.Connect();
         }
 

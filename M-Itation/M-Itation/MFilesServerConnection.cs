@@ -11,17 +11,22 @@ namespace M_Itation
     public class MFilesServerConnection
     {
 
+        #region ServerConfig
+        public MFilesAuthType AuthType { get; set; } = MFilesAuthType.CurrentlyLoggedOnWindowsUser;
+        public string UserName { get; set; }
+        public string Password { get; set; }
+        public string Domain { get; set; }
+        public MFilesProtocolSequence ProtocolSequence { get; set; } = MFilesProtocolSequence.ncacn_ip_tcp;
+        public string ServerName { get; set; } = "localhost";
+        public string EndPoint { get; set; } = "2266";
+
+        #endregion
+
         public MFilesServerConnection()
         {
 
         }
 
-        public MFilesServerConnection(ServerConfig config)
-        {
-            ServerConfig = config;
-        }
-
-        public ServerConfig ServerConfig { get; set; } = new ServerConfig();
 
 
         internal MFilesServerApplication Server { get; private set; } = new MFilesServerApplication();
@@ -50,13 +55,13 @@ namespace M_Itation
         public void Connect()
         {
             Server = new MFilesServerApplication();
-            Server.Connect(AuthType: (MFAuthType)ServerConfig.AuthType,
-                            UserName: ServerConfig.UserName,
-                            Password: ServerConfig.Password,
-                            Domain: ServerConfig.Domain,
-                            ProtocolSequence: ServerConfig.ProtocolSequence.ToString(),
-                            NetworkAddress: ServerConfig.ServerName, 
-                            Endpoint: ServerConfig.EndPoint, 
+            Server.Connect(AuthType: (MFAuthType)this.AuthType,
+                            UserName: this.UserName,
+                            Password: this.Password,
+                            Domain: this.Domain,
+                            ProtocolSequence: this.ProtocolSequence.ToString(),
+                            NetworkAddress: this.ServerName, 
+                            Endpoint: this.EndPoint, 
                             LocalComputerName: Environment.MachineName);
         }
 

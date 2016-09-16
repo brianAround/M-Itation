@@ -11,10 +11,10 @@ namespace M_Itation_Testing
     {
    
     
-        public void Utility_TestServerOperations(ServerConfig serverConfig)
+        public void Utility_TestServerOperations(MFilesServerConnection serverConnection)
         {
             // Get the library and see if the server is where we expect it to be.
-            var con = new MFilesServerConnection(serverConfig);
+            MFilesServerConnection con = serverConnection;
 
             Assert.IsNotNull(con);
             Assert.IsFalse(con.IsConnectedtoServer, "MFilesServerconnection just created, but seems to be connected to the server.");
@@ -55,17 +55,36 @@ namespace M_Itation_Testing
             Utility_TestServerOperations(getSpecificMFilesUserConfig());
         }
 
+
+
         [TestMethod]
-        public void GetServerInfoSpecificWindowsUser()
+        public void TestVaultContextConnection()
         {
-            Utility_TestServerOperations(getSpecificWindowsUserConfig());
+            // Create a vault context with a valid MFilesConnection
+
+
+            //  Login to vault
+
+
+            //  View available classes
+
+
+            //  Perform a quick search against the vault
+
+
+            //  Look up a document by its ID
+
+
+            //  Close the Vault Connection
+
+
         }
 
 
 
-        private ServerConfig getCurrentWindowsUserConfig()
+        private MFilesServerConnection getCurrentWindowsUserConfig()
         {
-            return new ServerConfig
+            return new MFilesServerConnection
             {
                 AuthType = MFilesAuthType.CurrentlyLoggedOnWindowsUser,
                 UserName = null,
@@ -75,9 +94,9 @@ namespace M_Itation_Testing
             };
         }
 
-        private ServerConfig getSpecificMFilesUserConfig()
+        private MFilesServerConnection getSpecificMFilesUserConfig()
         {
-            return new ServerConfig
+            return new MFilesServerConnection
             {
                 AuthType = MFilesAuthType.SpecificMFilesUser,
                 UserName = "Lance",
@@ -87,18 +106,6 @@ namespace M_Itation_Testing
             };
         }
 
-        private ServerConfig getSpecificWindowsUserConfig()
-        {
 
-            return new ServerConfig
-            {
-                AuthType = MFilesAuthType.SpecificWindowsUser,
-                UserName = "Admin",
-                Password = "corsica",
-                Domain = "DESKTOP-HN8QES7",
-                ProtocolSequence = MFilesProtocolSequence.ncacn_ip_tcp,
-                ServerName = "localhost"
-            };
-        }
     }
 }

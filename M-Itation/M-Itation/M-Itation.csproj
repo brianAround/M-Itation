@@ -45,7 +45,7 @@
     <Compile Include="MFilesProtocolSequence.cs" />
     <Compile Include="MFilesServerConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServerConfig.cs" />
+    <Compile Include="MFilesConnectionBuilder.cs" />
     <Compile Include="VaultInfo.cs" />
   </ItemGroup>
   <ItemGroup>
