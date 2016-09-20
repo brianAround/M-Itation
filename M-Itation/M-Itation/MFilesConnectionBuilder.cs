@@ -58,20 +58,18 @@ namespace M_Itation
             {
                 case MFilesProtocolSequence.ncacn_ip_tcp:
                     EndPoint = EndpointForTCPIP;
-                    ServerName = serverName;
                     break;
                 case MFilesProtocolSequence.ncacn_http:
                     EndPoint = EndpointForHTTP;
-                    ServerName = serverName;
                     break;
                 case MFilesProtocolSequence.ncalrpc:
                     EndPoint = EndpointForLPC;
                     serverName = null;
                     break;
                 case MFilesProtocolSequence.ncacn_spx:
-                    ServerName = serverName;
                     break;
             }
+            ServerName = serverName;
             return this;
         }
 
