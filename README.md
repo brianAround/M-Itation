@@ -2,6 +2,11 @@
 
 ## A .NET Library for simplifying the process of creating, retrieving, and modifying documents in an M-Files Vault.  
 
+### Current State
+
+Currently the M-Itation Project has only completed as far as generating a 
+connection to the server.  More work is to follow. 
+
 ### About M-Files and MFilesAPI
 
 M-Files is a Document Management System with an Attribute-Based Schema that at
